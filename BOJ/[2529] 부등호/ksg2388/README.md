@@ -1,68 +1,11 @@
-# Algorithm Study
-코딩테스트의 강자가 되기 위한 스터디입니다.
+## 사용한 알고리즘
+DFS(백트레킹)를 사용
 
-**정기 회의** : 매주 화요일 저녁 식사 이후
+## 중요 구현 로직 및 설명
+부등호를 따로 저장해둔뒤에 dfs 함수를 통해 부등호에 만족하는 모든 경우의 수를 구한다. 이후 result 배열을 정렬해 맨 앞의 값(최소값)과 맨 뒷 값(최대값)을 출력한다.
+<img width="100%" src="https://user-images.githubusercontent.com/45422827/215951014-a2700f31-a8bf-4445-b9c7-ba6c4446eca2.png"/>
+여기서 종료 조건은 depth가 k + 1일 때, 즉 부등호의 개수보다 하나 많을 때 그 값을 result에 추가한다.
+재귀 호출 부분은 일단 num에 아무 값도 없는 경우는 무조건 호출을 하고 그 이외의 경우는 compare 함수를 통해 이전의 값과 부등호를 비교하여 옳은 경우에만 재귀 호출한다.
 
-## 💁‍♂️ 스터디 규칙
-### 문제 풀이
-매주 **5문제**씩 해결하고, 오프라인으로 진행되는 **리뷰 시간**에 의견을 공유합니다.<br/>
-해결한 문제의 **풀이와 코드 작성 이유**를 잘 설명할 수 있도록 합니다.
-
-### 리드미 규칙
-사용한 알고리즘, 중요 구현 로직 및 설명, 풀이 후기
-
-### 커밋 규칙
-1. Repository clone
-```bash
-git clone https://github.com/SeongukBaek/algoStudy.git
-```
-
-2. Repository open
-- vscode or IntelliJ
-
-3. 본인의 Branch 생성
-- branch는 주차별로 생성한다.
-
-```bash
-git checkout -b {본인의 깃허브 이름}/{주차명}
-```
-> ex. git checkout -b SUbbb/1week
-
-4. 문제별 디렉토리 생성 및 코드, README 저장
-```
-{플랫폼}/[{문제 번호}] {문제명}/본인의 깃허브 이름
-```
-> ex. BOJ/[1759] 암호 만들기/SUbbb
-
-5. Push
-```bash
-git add .
-git commit -m "{주차명} : [{문제번호}] {문제명}"
-git push origin {생성한 브랜치}
-```
-
-> ex. git commit -m "1week : [1759] 암호 만들기"
-
-6. Pull request 생성
-- 제목 : {본인의 깃허브 이름} : [{주차명}]
-  > ex. SUbbb : [1week]
-- 내용 : 문제명, 시간복잡도, 시간 및 메모리 캡처
-- 라벨 : 플랫폼, 언어
-
-7. 스터디 회의 후, merge
-
-### 리뷰 규칙
-스터디 시작 전, 다른 사람의 코드를 보고 신랄한 평가와 코멘트를 부탁드립니다.
-
-> **코드 리뷰는 창과 방패의 싸움.**
-
----
-## 💻 문제
-<details><summary>1주차 ~ 2주차 문제</summary>
-
-|주차|1|2|3|4|5|
-|:---:|:---:|:---:|:---:|:---:|:---:|
-|**1주차**<br> (01.25 ~ 01.31)|[부등호](https://www.acmicpc.net/problem/2529)|[암호 만들기](https://www.acmicpc.net/problem/1759)||
-|**2주차**<br> (02.01 ~ 02.7)|[테트로미노](https://www.acmicpc.net/problem/14500)|[강의실 배정](https://www.acmicpc.net/problem/11000)|[눈 치우기](https://www.acmicpc.net/problem/26215)|[암호생성기](https://swexpertacademy.com/main/code/problem/problemDetail.do?problemLevel=3&contestProbId=AV14uWl6AF0CFAYD&categoryId=AV14uWl6AF0CFAYD&categoryType=CODE&problemTitle=&orderBy=RECOMMEND_COUNT&selectCodeLang=JAVA&select-1=3&pageSize=10&pageIndex=2)|[햄버거 다이어트](https://swexpertacademy.com/main/code/problem/problemDetail.do?problemLevel=3&contestProbId=AWT-lPB6dHUDFAVT&categoryId=AWT-lPB6dHUDFAVT&categoryType=CODE&problemTitle=&orderBy=RECOMMEND_COUNT&selectCodeLang=JAVA&select-1=3&pageSize=10&pageIndex=2)|
-
-</details>
+## 풀이 후기
+아직은 자바에 익숙하지 않아서 적절한 기능들을 사용한 것인지 잘 모르겠다. 더 효율적으로 코드를 짤 수 있도록 신경써야겠다.
