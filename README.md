@@ -58,7 +58,7 @@ git push origin {생성한 브랜치}
 
 ---
 ## 💻 문제
-<details><summary>1주차 문제</summary>
+<details><summary>1주차 ~ 2주차 문제</summary>
 
 |주차|1|2|3|4|5|
 |:---:|:---:|:---:|:---:|:---:|:---:|
