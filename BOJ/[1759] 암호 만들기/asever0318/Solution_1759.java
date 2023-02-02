@@ -4,21 +4,21 @@ import java.util.*;
 
 public class Solution_1759 {
 	
-	private static int L; //°³¼ö
-	private static int C; //¹®ÀÚÀÇ Á¾·ù ¼ö
-	private static char[] clist; //ÁÖ¾îÁø ¹®ÀÚ ´ãÀ» ¹è¿­
-	private static char[] code; //¸¸µç ¾ÏÈ£ ³ÖÀ» ¹è¿­
+	private static int L; //ê°œìˆ˜
+	private static int C; //ë¬¸ìì˜ ì¢…ë¥˜ ìˆ˜
+	private static char[] clist; //ì£¼ì–´ì§„ ë¬¸ì ë‹´ì„ ë°°ì—´
+	private static char[] code; //ë§Œë“  ì•”í˜¸ ë„£ì„ ë°°ì—´
 	
-	//L°³ »Ì±â
+	//Lê°œ ë½‘ê¸°
 	public static void recur(int num, int depth) {
 		
-		if(depth == L) { //L°³ ´Ù »ÌÀ¸¸é 
-			//¸ğÀ½°ú ÀÚÀ½ °¹¼ö È®ÀÎ 
+		if(depth == L) { //Lê°œ ë‹¤ ë½‘ìœ¼ë©´ 
+			//ëª¨ìŒê³¼ ììŒ ê°¯ìˆ˜ í™•ì¸ 
 			if(check(code) == true) {
 				System.out.println(code);
-				//return; //¸®ÅÏ À§Ä¡ Á¶½É! ArrayindexOutOfBounds ¿¡·¯ - ¹üÀ§¸¦ ¹ş¾î³µÀ» ¶§ ¹ß»ı
+				//return; //ë¦¬í„´ ìœ„ì¹˜ ì¡°ì‹¬! ArrayindexOutOfBounds ì—ëŸ¬ - ë²”ìœ„ë¥¼ ë²—ì–´ë‚¬ì„ ë•Œ ë°œìƒ
 			}
-			return; //¸®ÅÏÇØÁà¾ß ºüÁ®³ª°¡¼­ ¹è¿­ Ã³À½ºÎÅÍ Ã¤¿ï ¼ö ÀÖÀ½
+			return; //ë¦¬í„´í•´ì¤˜ì•¼ ë¹ ì ¸ë‚˜ê°€ì„œ ë°°ì—´ ì²˜ìŒë¶€í„° ì±„ìš¸ ìˆ˜ ìˆìŒ
 		}
 		
 		for(int i = num; i < C; i++) {
@@ -29,8 +29,8 @@ public class Solution_1759 {
 	}
 	
 	public static boolean check(char[] code) {
-		int c = 0; //ÀÚÀ½
-		int v = 0; //¸ğÀ½
+		int c = 0; //ììŒ
+		int v = 0; //ëª¨ìŒ
 		
 		for(int a = 0; a < code.length; a++){
 			switch(code[a]){
@@ -43,7 +43,7 @@ public class Solution_1759 {
 			}
 		}
 		
-		//¸ğÀ½ÀÌ 1°³ ÀÌ»óÈ÷°í ÀÚÀ½ÀÌ 2°³ ÀÌ»óÀÌ¸é ¾ÏÈ£ Ãâ·Â
+		//ëª¨ìŒì´ 1ê°œ ì´ìƒíˆê³  ììŒì´ 2ê°œ ì´ìƒì´ë©´ ì•”í˜¸ ì¶œë ¥
 		if(v >= 1 && c >= 2)
 			return true;
 		else
@@ -63,9 +63,10 @@ public class Solution_1759 {
 			clist[i] = sc.next().charAt(0);
 		}
 	
-		//¾ËÆÄºª ¼ø¼­¿¡ ¸Â°Ô ¸¸µé±â ¶§¹®¿¡ ¸ÕÀú Á¤·ÄÇØÁÖ±â 
+		//ì•ŒíŒŒë²³ ìˆœì„œì— ë§ê²Œ ë§Œë“¤ê¸° ë•Œë¬¸ì— ë¨¼ì € ì •ë ¬í•´ì£¼ê¸° 
 		Arrays.sort(clist);
 		recur(0, 0);
+		
 		
 	}
 }
