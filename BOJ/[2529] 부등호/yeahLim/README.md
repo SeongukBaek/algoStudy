@@ -10,7 +10,7 @@
 private static List<String> result = new ArrayList<>();
 ```
 
-- 
+- 결과값 담을 arrayList<string> 객체
 
 ```java
 private static void dfs(String n, int depth) {
