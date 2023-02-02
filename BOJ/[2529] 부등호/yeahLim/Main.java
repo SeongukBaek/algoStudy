@@ -4,7 +4,7 @@ public class Main {
     private static int k;
     private static boolean[] visited = new boolean[10];
     private static char[] signs;
-    private static ArrayList<String> result = new ArrayList<>();
+    private static List<String> result = new ArrayList<>();
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
