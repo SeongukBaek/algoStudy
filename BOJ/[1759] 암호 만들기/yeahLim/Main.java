@@ -1,26 +1,27 @@
+
 import java.io.*;
 import java.util.*;
 
 public class Main {
 
-    static char[] arr;
+    static char[] alph;
     static boolean[] visited;
     static int l, c;
-    static HashSet<Character> set = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u'));
+    static Set<Character> set = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u'));
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         l = Integer.parseInt(st.nextToken());
         c = Integer.parseInt(st.nextToken());
-        arr = new char[c];
+        alph = new char[c];
         visited = new boolean[c];
 
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < c; i++)
-            arr[i] = st.nextToken().charAt(0);
+            alph[i] = st.nextToken().charAt(0);
 
-        Arrays.sort(arr);
+        Arrays.sort(alph);
 
         dfs(0, 0);
 
@@ -34,13 +35,13 @@ public class Main {
 
             for (int i = 0 ; i < c; i++) {
                 if (visited[i]) {
-                    if (isVowel(arr[i])) {
+                    if (isVowel(alph[i])) {
                         vowel += 1;
                     } else {
                         consonant +=1;
                     }
 
-                    sb.append(arr[i]);
+                    sb.append(alph[i]);
                 }
             }
 
@@ -58,11 +59,10 @@ public class Main {
     }
 
     public static boolean isVowel(char c) {
-        if (set.contains(c)) {
+        if (set.contains(c))
             return true;
-        } else {
+        else
             return false;
-        }
     }
 
 }
