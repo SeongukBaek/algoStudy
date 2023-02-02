@@ -2,15 +2,15 @@ package BOJ;
 
 import java.util.*;
 
-//2529¹ø ºÎµîÈ£
+//2529ë²ˆ ë¶€ë“±í˜¸
 public class Solution_2529 {
 	private static int K;
 	private static char[] c;
 	private static int[] result; 
 	private static boolean[] check;
-	private static int index = 0; //resultÀÇ À§Ä¡ Ç¥½Ã 
-	private static int count = 0; //°¡Àå Ã³À½ ¿Ï¼ºµÈ ¼ıÀÚ¸¸ Ãâ·ÂÇÏ±â À§ÇØ Ç¥½Ã, count°¡ 0ÀÌ ¾Æ´Ï¸é Àç±Í¸ØÃß±â
-	private static int depth = 0; //ºÎµîÈ£ ¹è¿­ÀÇ À§Ä¡ Ç¥½Ã(¸î¹øÂ° ºÎµîÈ£ »ç¿ëÇÒÁö)
+	private static int index = 0; //resultì˜ ìœ„ì¹˜ í‘œì‹œ 
+	private static int count = 0; //ê°€ì¥ ì²˜ìŒ ì™„ì„±ëœ ìˆ«ìë§Œ ì¶œë ¥í•˜ê¸° ìœ„í•´ í‘œì‹œ, countê°€ 0ì´ ì•„ë‹ˆë©´ ì¬ê·€ë©ˆì¶”ê¸°
+	private static int depth = 0; //ë¶€ë“±í˜¸ ë°°ì—´ì˜ ìœ„ì¹˜ í‘œì‹œ(ëª‡ë²ˆì§¸ ë¶€ë“±í˜¸ ì‚¬ìš©í• ì§€)
 	
 	public static void recurMin(int num, int depth) {
 		
@@ -31,7 +31,7 @@ public class Solution_2529 {
 		}
 		
 		for(int i = 0; i<=9; i++) {
-			//¹æ¹®ÇÏÁö ¾Ê¾Ò°í ºÎµîÈ£°¡ ¼º¸³ÇÏ¸é
+			//ë°©ë¬¸í•˜ì§€ ì•Šì•˜ê³  ë¶€ë“±í˜¸ê°€ ì„±ë¦½í•˜ë©´
 			if(depth == 0 || check[i] == false && compare(result[num - 1], i, c[depth-1])) {
 				check[i] = true;
 				result[index] = i;
@@ -64,7 +64,7 @@ public class Solution_2529 {
 		}
 		
 		for(int i = 9; i>=0; i--) {
-			//Ã¹ ¹øÂ° ¼ıÀÚÀÌ°Å³ª ¹æ¹®ÇÏÁö ¾Ê¾Ò°í ºÎµîÈ£°¡ ¼º¸³ÇÏ¸é
+			//ì²« ë²ˆì§¸ ìˆ«ìì´ê±°ë‚˜ ë°©ë¬¸í•˜ì§€ ì•Šì•˜ê³  ë¶€ë“±í˜¸ê°€ ì„±ë¦½í•˜ë©´
 			if(depth == 0 || check[i] == false && compare(result[num - 1], i, c[depth-1])) {
 				check[i] = true;
 				result[index] = i;
@@ -84,23 +84,24 @@ public class Solution_2529 {
 	}
 	
 	public static void main(String[] args) {
-		//9¿¡¼­ºÎÅÍ ¼ø¼­´ë·Î °Å²Ù·Î ¼±ÅÃÇÒ ¼ö ÀÖ´Â °¡Àå Å« ¼ıÀÚ¸¦ ¼±ÅÃÇÏ¸é max°ª, ¹İ´ë·Î ÇÏ¸é min°ª 
+		//9ì—ì„œë¶€í„° ìˆœì„œëŒ€ë¡œ ê±°ê¾¸ë¡œ ì„ íƒí•  ìˆ˜ ìˆëŠ” ê°€ì¥ í° ìˆ«ìë¥¼ ì„ íƒí•˜ë©´ maxê°’, ë°˜ëŒ€ë¡œ í•˜ë©´ minê°’ 
 		
 		Scanner sc = new Scanner(System.in);
 		K = sc.nextInt();
 		c = new char[K];
-		result = new int[K+1]; //ºÎµîÈ£ °¹¼öº¸´Ù ¼ıÀÚ°¡ 1°³ ¸¹À½
-		check = new boolean[10]; //0~9±îÁö ¹æ¹®¿©ºÎ Ã¼Å©
+		result = new int[K+1]; //ë¶€ë“±í˜¸ ê°¯ìˆ˜ë³´ë‹¤ ìˆ«ìê°€ 1ê°œ ë§ìŒ
+		check = new boolean[10]; //0~9ê¹Œì§€ ë°©ë¬¸ì—¬ë¶€ ì²´í¬
 		
 		
 		for(int i = 0; i<K; i++) {
-			//½ºÄ³³Ê¸¦ ÀÌ¿ëÇØ char ÀÔ·Â¹Ş±â 
+			//ìŠ¤ìºë„ˆë¥¼ ì´ìš©í•´ char ì…ë ¥ë°›ê¸° 
 			c[i] = sc.next().charAt(0);
 		}
 		
-		//¹éÆ®·¡Å·
+		//ë°±íŠ¸ë˜í‚¹
 		recurMax(0, 0);
 		count = 0;
 		recurMin(0, 0);
 	}
 }
+
