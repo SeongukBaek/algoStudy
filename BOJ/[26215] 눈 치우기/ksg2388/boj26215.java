@@ -3,12 +3,6 @@ package practice.boj;
 import java.io.*;
 import java.util.*;
 
-//우선순위 큐를 사용해서 내림차순으로 정렬 후 눈치우기 작업을 반복
-//1. 배열을 내림차순으로 정렬
-//2. 가장 큰 값이 1440보다 클 경우 -1 출력 후 종료
-//3. 가장 큰 값과 그 다음 큰 값에 1씩 빼는 작업을 남은 집이 1개보다 큰 경우 반복
-//4. 작업을 모두 끝낸 후 남은 값 만큼 시간에 더해준다.
-
 public class boj26215 {
 	private static int n;
 	private static int time;
