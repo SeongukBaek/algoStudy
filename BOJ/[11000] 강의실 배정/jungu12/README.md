@@ -2,7 +2,7 @@
 
 ## :pushpin: **Algorithm**
 
-우선순위 큐
+우선순위 큐, 백 트래킹
 
 ## :round_pushpin: **Logic**
 
