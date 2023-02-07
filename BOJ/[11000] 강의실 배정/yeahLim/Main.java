@@ -14,13 +14,14 @@ public class Main {
             time[i][1] = Integer.parseInt(str[1]);
         }
 
-        /* 1. 시작시간, 2. 끝나는 시간 오름차순으로 정렬*/
+        /* 시작시간 오름차순으로 정렬*/
         Arrays.sort(time, new Comparator<int[]>() {
             @Override
             public int compare(int[] o1, int[] o2) {
-                if (o1[0] == o2[0])
+                // 끝나는 시간은 pq에 들어가기 때문에 정렬 필요 x
+                /*if (o1[0] == o2[0])
                     return o1[1] - o2[1];
-                else
+                else*/
                     return o1[0] - o2[0];
             }
         });
