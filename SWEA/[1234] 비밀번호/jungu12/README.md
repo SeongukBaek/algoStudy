@@ -20,7 +20,7 @@ static void check(int idx) {
   }
 }
   ```
-   - pw라는 Arraylist에 input을 입력 받은 후, 처음부터 조건을 만족하는 짝을 찾아 remove 해준다.
+   - pw라는 Arraylist에 input을 입력 받은 후, pw의 0번째부터 조건을 만족하는 짝을 찾아 remove 해준다.
    - 조건을 만족하는 짝을 찾는다면 idx - 1 해주고 다시 짝을 찾는다.
   
   
