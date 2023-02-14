@@ -8,14 +8,14 @@ DP, 누적 합
 
 ```java
 for (int i = 0; i < n; i++) {
-			int sum = 0;
-			String[] nstr = br.readLine().split(" ");
-			// 누적값 넣어주기
-			for (int j = 0; j < n; j++) {
-				sum += Integer.parseInt(nstr[j]);
-				arr[i+1][j+1] = sum;
-			}
-		}
+	int sum = 0;
+	String[] nstr = br.readLine().split(" ");
+	// 누적값 넣어주기
+	for (int j = 0; j < n; j++) {
+		sum += Integer.parseInt(nstr[j]);
+		arr[i+1][j+1] = sum;
+	}
+}
 ```
 
 - 입력과 동시에 행을 기준으로 (i,0)에서 (i,n)까지의 값을 더해 누적값을 대입한다. 
