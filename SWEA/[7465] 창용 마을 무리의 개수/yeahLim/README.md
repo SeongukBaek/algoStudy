@@ -2,7 +2,7 @@
 
 ## :pushpin: **Algorithm**
 
-구현
+Union-find
 
 ## :round_pushpin: **Logic**
 
