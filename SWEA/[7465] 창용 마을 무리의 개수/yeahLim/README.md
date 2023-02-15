@@ -2,7 +2,7 @@
 
 ## :pushpin: **Algorithm**
 
-DFS
+구현
 
 ## :round_pushpin: **Logic**
 
