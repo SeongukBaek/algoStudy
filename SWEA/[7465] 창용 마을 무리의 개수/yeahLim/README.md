@@ -9,9 +9,9 @@ DFS
 
 ```java
 map = new int[n + 1];
-			for (int i = 1; i < n + 1; i++) {
-				map[i] = i;
-			}
+for (int i = 1; i < n + 1; i++) {
+	map[i] = i;
+}
 ```
 - map에 각 숫자에 숫자값을 루트값으로 대입한다.
 ```java
