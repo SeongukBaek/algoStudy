@@ -32,9 +32,7 @@ public class Tomato {
 			}
 		}
 		
-		day = countDay();
-		
-		System.out.println(day);
+		System.out.println(countDay());
 	}
 	
 	/**
@@ -45,15 +43,13 @@ public class Tomato {
 	 */
 	static int countDay() {
 		int day = -1;
-		boolean isFinished = checkTomato();
 		
 		while (!done.isEmpty()) {
 			day++;
 			oneDay();
 		}
-		isFinished = checkTomato();
 		
-		if(!isFinished)
+		if(checkTomato())
 			return -1;
 		return day;
 	}
