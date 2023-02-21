@@ -2,7 +2,7 @@
 
 ## :pushpin: **Algorithm**
 
-DP
+부분 집합, DP
 
 ## :round_pushpin: **Logic**
 ```java
