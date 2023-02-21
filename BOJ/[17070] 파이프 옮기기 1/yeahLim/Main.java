@@ -104,11 +104,11 @@ public class Main {
 
         if(direction == 0) { // 가로일때
             return (y >= n || house[x][y] == 1);
-
-        } else if(direction == 1) { // 세로일때
+        } 
+        if(direction == 1) { // 세로일때
             return (x >= n || house[x][y] == 1);
-
-        } else { // 대각선일때
+        } 
+        if(direction == 2) { // 대각선일때
             return (x >= n || y >= n || house[x][y-1] == 1 || house[x-1][y] == 1 || house[x][y] == 1); // 이동할때 3칸 차지
         }
     }
