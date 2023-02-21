@@ -1,41 +1,72 @@
-# [16472] 고냥이
+# [17406] 배열 돌리기 4
 
 ## :pushpin: **Algorithm**
 
-투 포인터
+브루트포스
 
 ## :round_pushpin: **Logic**
 
 ```java
-static void findMaxLen() {
-	for (int start = 0; start < catStr.length() - maxLen; start++) {
-		Set<Character> typeNum = new HashSet<>();
-		int end = start;
-		while (true) {
-			typeNum.add(catStr.charAt(end));
-			if(typeNum.size() > N) {
-				end --;
-				break;
-			}
-			end++;
-			if (end == catStr.length()) {
-				end--;
-				break;
-			}
-		}
-		int len = end - start + 1;
-		if (len > maxLen) {
-			maxLen = len;
+static void chooseOrder(int cnt) {
+	if (cnt == K) {
+		rotateArr(order);
+		return;
+	}
+	for (int i = 0; i < K; i++) {
+		if (!isSelected[i]) {
+			order[cnt] = i;
+			isSelected[i] = true;
+			chooseOrder(cnt + 1);
+			isSelected[i] = false;
 		}
 	}
 }
   ```
-   - Set에 새로운 문자를 check할 때 마다 add를 해주어 사용된 알파벳 종류를 관리한다.
-   - 알파벳 최대 종류를 넘거나, 문자열을 끝까지 다 확인했다면, 이전까지의 maxLen과 비교하여 값을 갱신해준다.
+  ```java
+for (int idx = 0; idx < K; idx++) {
+	int r = rotate[order[idx]][0];
+	int c = rotate[order[idx]][1];
+	int s = rotate[order[idx]][2];
+
+	for (int i = 1; i <= s; i++) {
+		int limit = i * 2;
+		int curX = r - i;
+		int curY = c - i;
+		int tmpNow = tmpA[curX][curY];
+		int tmpNext;
+		for (int j = 0; j < limit * 4; j++) {
+			if (j < limit) {
+				tmpNext = tmpA[curX][curY + 1];
+				tmpA[curX][curY + 1] = tmpNow;
+				curY += 1;
+				tmpNow = tmpNext;
+			} else if (j < limit * 2) {
+				tmpNext = tmpA[curX + 1][curY];
+				tmpA[curX + 1][curY] = tmpNow;
+				curX += 1;
+				tmpNow = tmpNext;
+			} else if (j < limit * 3) {
+				tmpNext = tmpA[curX][curY - 1];
+				tmpA[curX][curY - 1] = tmpNow;
+				curY -= 1;
+				tmpNow = tmpNext;
+
+			} else if (j < limit * 4) {
+				tmpNext = tmpA[curX - 1][curY];
+				tmpA[curX - 1][curY] = tmpNow;
+				curX -= 1;
+				tmpNow = tmpNext;
+			}
+		}
+	}
+}
+  ```
+   - 연산의 순서쌍들을 만들어 해당 순서를 지켜 배열을 돌린다.
+   - 연산 하기전, 배열을 TMP라는 임시 배열에 저장하여 다음 연산에 문제가 없게 한다.
   
   
 ## :black_nib: **Review**
- - 투 포인터를 사용하여 어렵지 않게 구현 할 수 있는 문제였다.
+ - 입력 받은 원배열을 연산한 후에도 그대로 사용하여 문제 해결에 오랜시간이 걸렸다.
 
 
   
