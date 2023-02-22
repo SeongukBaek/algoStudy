@@ -65,7 +65,11 @@ git push origin {생성한 브랜치}
 
 ---
 ## 💻 문제
+<!-- 
 <details><summary>1주차 ~ 5주차 문제</summary>
+
+</details>
+-->
 
 |주차|1|2|3|4|5|
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -75,4 +79,3 @@ git push origin {생성한 브랜치}
 |**4주차**<br> (02.16 ~ 02.22)|[문자열 폭발](https://www.acmicpc.net/problem/9935)|[고냥이](https://www.acmicpc.net/problem/16472)|[가능한 시험 점수](https://swexpertacademy.com/main/code/problem/problemDetail.do?problemLevel=4&contestProbId=AWHPkqBqAEsDFAUn&categoryId=AWHPkqBqAEsDFAUn&categoryType=CODE&problemTitle=&orderBy=RECOMMEND_COUNT&selectCodeLang=JAVA&select-1=4&pageSize=10&pageIndex=1&&&&&&&&&&)|[배열 돌리기 4](https://www.acmicpc.net/problem/17406)|[파이프 옮기기 1](https://www.acmicpc.net/problem/17070)|
 |**5주차**<br> (02.23 ~ 03.01)|[연구소](https://www.acmicpc.net/problem/14502)|[가스관](https://www.acmicpc.net/problem/2931)|[싸움땅](https://www.codetree.ai/training-field/frequent-problems/battle-ground/description?page=3&pageSize=20&username=bsu1209)|[2048 (Easy)](https://www.acmicpc.net/problem/12100)|[점심 식사시간](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5-BEE6AK0DFAVl&)||
 
-</details>
