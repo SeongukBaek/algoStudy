@@ -1,4 +1,4 @@
-# [14502] 연구소 - C++
+# [14502] 연구소 - Java
 
 ## :pushpin: **Algorithm**
 
@@ -6,65 +6,53 @@
 
 ## :round_pushpin: **Logic**
 
-```c++
-void set_boundary(int idx, int wall);
-```
+```java
+for (int x = 0; x < N; x++) {
+    st = new StringTokenizer(br.readLine());
+    for (int y = 0; y < M; y++) {
+        int number = Integer.parseInt(st.nextToken());
+        map[x][y] = number;
 
-- 재귀호출을 통해 벽을 세우고, 3개의 벽을 모두 세운 후 바이러스를 퍼뜨리는 spreadout() 함수와 연구소의 정보를 가지고 있는 map배열을 직전의 상태로 초기화하고 안전구역을 계산하는 map_set() 함수를 호출하는 함수
+        if (number == 2) {
+            virus.add(new Location(x, y));
+        }
 
-```c++
-int** visited;
-```
-
-- 방문 여부를 저장하는 배열, -1로 초기화
-
-```c++
-if (map[i][j] == 2)
-    two[idx2].first = i, two[idx2++].second = j;
-else if (map[i][j] == 0)
-    zero[idx0].first = i, zero[idx0++].second = j;
-```
-
-- 연구소의 해당 좌표 정보가 0인 경우와 2인 경우에 대해 각각의 배열을 만들어 좌표 저장, 후에 벽을 세우거나 바이러스를 퍼뜨리는 함수에서 사용
-
-```c++
-void set_boundary(int idx, int wall) {
-	if (wall == 0) {
-		spreadout();
-		map_set();
-	}
-	else {
-		wall--;
-		for (int i = idx; i < idx0; i++) {
-			copy_map[zero[i].first][zero[i].second] = 1;
-			set_boundary(i + 1, wall);
-			copy_map[zero[i].first][zero[i].second] = 0;
-		}
-	}
-}
-```
-
-- 벽을 모두 세운 경우, BFS를 통해 2인 좌표로부터 시작하여 바이러스를 퍼뜨리는 함수와 안전구역 계산 후 연구소를 바이러스를 퍼뜨리기 전의 상태로 돌려놓는 함수 호출
-- 벽을 아직 세우는 중인 경우, 0인 좌표를 저장한 zero배열에서 순차적으로 하나씩 선택하여 벽을 세우고, set_boundary함수 재귀호출, 재귀호출한 함수가 종료되어 리턴되면 세웠던 벽을 허물어 다시 0으로 바꾸고 다음 0인 좌표 탐색
-
-```c++
-if (copy_map[i][j] == 0)
-    area++;
-else if (copy_map[i][j] == 2) {
-    for (int a = 0; a < idx2; a++) {
-        if (i == two[a].first && j == two[a].second)
-            check++;
+        if (number == 0) {
+            wallCandidates.add(new Location(x, y));
+        }
     }
-    if (check == 0)
-        copy_map[i][j] = 0;
-    check = 0;
 }
 ```
 
-- 안전구역을 계산하고 2인 좌표 중 원래 연구소에 존재하던 2가 아닌 경우에 대해 다시 0으로 복구하는 함수
+- 바이러스 위치는 큐로서 저장한다.
+- 또한 벽 위치도 저장해서, 이후에 3중 for문으로 모든 경우의 벽을 세우기 위해 사용한다.
+
+```java
+private static void buildWall() {
+    // 첫 번째 벽 선택
+    for (int first = 0; first < wallCandidates.size() - 2; first++) {
+        Location firstWall = wallCandidates.get(first);
+        // 두 번째 벽 선택
+        for (int second = first + 1; second < wallCandidates.size() - 1 && second != first; second++) {
+            Location secondWall = wallCandidates.get(second);
+            // 세 번째 벽 선택
+            for (int third = second + 1; third < wallCandidates.size() && third != second; third++) {
+                temp = copyMap();
+                Location thirdWall = wallCandidates.get(third);
+                temp[firstWall.x][firstWall.y] = 1;
+                temp[secondWall.x][secondWall.y] = 1;
+                temp[thirdWall.x][thirdWall.y] = 1;
+
+                spreadVirus();
+                max = Math.max(max, countSafeArea());
+            }
+        }
+    }
+}
+```
+
+- 모든 경우의 벽을 세워보아야하기에, 위와 같이 3중 for문을 통해 벽을 세워보고, 최대 안전 구역을 계산한다.
 
 ## :black_nib: **Review**
-
-- 이번 주차 중 아무래도 가장 난이도가 있었던 문제, 처음엔 어떻게 접근해야 할지 너무 막막했으나 벽을 세우고, 바이러스를 퍼뜨리고, 안전구역을 계산한다는 3 부분으로 나누어 생각
-- 세 부분 중 벽을 세우는 부분이 가장 머리를 많이 썼던 것 같다. 브루트 포스 알고리즘을 사용하기 때문에 완전 탐색을 해야한다는 점은 알고 있었지만 무작위로 벽을 선택하여 최대 안전 구역을 도출해야하는지 혹은 벽을 세우는 데 있어 최선의 선택을 하는 방법이 존재하는지를 계속 고민해봤음
-- 완전 탐색은 하지만 조건을 두어, 어차피 벽은 0인 좌표에만 세우기 때문에 0인 좌표정보만 저장하는 배열을 생성하여 이 배열만 가지고 모든 경우에 대해 벽을 세워 해결
+- 이전에도 아이디어는 금방 잡았으나 배열의 복사 문제에서 애썼던 기록이 있다.
+- 이제 이러한 시뮬레이션식의 문제는 배열의 초기화, 복사 문제가 골치 아프다는 것을 알기에 이를 유념해서 코드를 짤 수 있었다.
