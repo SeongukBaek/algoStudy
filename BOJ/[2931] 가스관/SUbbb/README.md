@@ -7,7 +7,7 @@
 ## :round_pushpin: **Logic**
 
 ```java
-for (Location pipe : pipes) {
+for (int[] pipe : pipes) {
     if (findEmpty(pipe)) {
         break;
     }
@@ -21,8 +21,8 @@ private static void flowFromEmpty() {
     List<Integer> nearPipes = new ArrayList<>();
 
     for (int direction = 0; direction < 4; direction++) {
-        int nx = empty.x + directions[direction][0];
-        int ny = empty.y + directions[direction][1];
+        int nx = emptyX + directions[direction][0];
+        int ny = emptyY + directions[direction][1];
 
         if (!isInBoundary(nx, ny)) {
             continue;
