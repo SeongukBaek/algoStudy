@@ -1,46 +1,129 @@
-# [1759] 암호 만들기
+# [2931] 가스관
 
 ## :pushpin: **Algorithm**
 
-브루트포스, 백트래킹
+구현
 
 ## :round_pushpin: **Logic**
 
 ```java
-static void rec_func(int idx, int last) {
-		if (idx == len) {
-			int count = 0;
-			for (int i = 0; i < len; i++) {
-				if (vowel.contains(pw[i])) {
-					count++;
-				}
-			}
-			if (count >= 1 && len - count >= 2) {
-				for (String s : pw) {
-					System.out.print(s);
-				}
-				System.out.println();
-				
-			}
+static void findDeletedBlockPos(Pos pos) {
+	Pos nextPos = findNextPos(pos);
+	if (pos == mos) {
+		nextPos = findNextPosAtMos(mos);
+		if (nextPos == pos) {
+			deletedBlockPos = new Pos(nextPos.x, nextPos.y, nextPos.dir);
 			return;
 		}
-		for (int i = last; i <= N -(len - idx); i++) {
-			pw[idx] = input[i];
-			rec_func(idx + 1, i + 1);
-			pw[idx] = null;
+	} else {
+		if (map[nextPos.x][nextPos.y] == '.') {
+			deletedBlockPos = new Pos(nextPos.x, nextPos.y, nextPos.dir);
+			return;
 		}
 	}
-  ```
-  
-   - 재귀 함수 인자로 idx(현재 비밀번호가 몇자리 까지 만들어 졌는지), last(방금 비밀번호에 추가 된 문자가 몇번째 순서인지)를 넘겨준다
-   - 비밀번호 생성 for문의 시작 종료 조건으로 활용하여, 반복 횟수를 줄였다.
-  
-  
-## :black_nib: **Review**
- - 자음군 모음군을 따로 관리하지 않았는데 따로 관리한다면 시간을 줄일 수 있기도 하였다.
- - 완성된 pw 배열을 list로 관리하여 출력하려고 하였으나, list에 add 할 때 값이 아닌 주소 값을 넣는 시행착오를 겪었다.
- - 사실 list로 관리할 필요 없이 비밀번호 배열이 조건을 만족한다면 바로 출력하면 되어 필요 없는 고민을 하였다.
-  
-  	
+	findDeletedBlockPos(nextPos);
+}
+```
 
-  
+````java
+  static void findDeletedBlockType() {
+		Set<Character> pipes = new HashSet<>(Arrays.asList('|', '-', '+', '1', '2', '3', '4'));
+		for (int i = 0; i < 4; i++) {
+			Pos nextPos = new Pos(deletedBlockPos.x + dx[i], deletedBlockPos.y + dy[i]);
+			if (nextPos.x < 0 || nextPos.x >= R || nextPos.y < 0 || nextPos.y >= C) {
+				continue;
+			}
+			if (map[nextPos.x][nextPos.y] == '.' || map[nextPos.x][nextPos.y] == 'M') {
+				pipes.remove('+');
+			}
+			if (i == 0 && (map[nextPos.x][nextPos.y] == '|' || map[nextPos.x][nextPos.y] == '+'
+					|| map[nextPos.x][nextPos.y] == '1' || map[nextPos.x][nextPos.y] == '4')) {
+				pipes.remove('1');
+				pipes.remove('4');
+				pipes.remove('-');
+			} if (i == 1 && (map[nextPos.x][nextPos.y] == '|' || map[nextPos.x][nextPos.y] == '+'
+					|| map[nextPos.x][nextPos.y] == '2' || map[nextPos.x][nextPos.y] == '3')) {
+				pipes.remove('2');
+				pipes.remove('3');
+				pipes.remove('-');
+			} if (i == 2 && (map[nextPos.x][nextPos.y] == '-' || map[nextPos.x][nextPos.y] == '+'
+					|| map[nextPos.x][nextPos.y] == '1' || map[nextPos.x][nextPos.y] == '2')) {
+				pipes.remove('|');
+				pipes.remove('1');
+				pipes.remove('2');
+			}
+			if (i == 3 && (map[nextPos.x][nextPos.y] == '-' || map[nextPos.x][nextPos.y] == '+'
+					|| map[nextPos.x][nextPos.y] == '3' || map[nextPos.x][nextPos.y] == '4')) {
+				pipes.remove('|');
+				pipes.remove('3');
+				pipes.remove('4');
+			}
+		}
+        //파이프가 없어진 pos가 자그레브와 인접한 경우
+		if(pipes.size() == 0) {
+			for(int i = 0 ; i < 4; i++) {
+				Pos nextPos = new Pos(deletedBlockPos.x + dx[i], deletedBlockPos.y + dy[i]);
+				if(map[nextPos.x][nextPos.y] == 'Z') {
+					if(i == 0) {
+						if(deletedBlockPos.dir == 0) {
+							pipes.add('|');
+						}
+						if(deletedBlockPos.dir == 2) {
+							pipes.add('2');
+						}
+						if(deletedBlockPos.dir == 3) {
+							pipes.add('3');
+						}
+					}
+					if(i == 1) {
+						if(deletedBlockPos.dir == 1) {
+							pipes.add('|');
+						}
+						if(deletedBlockPos.dir == 2) {
+							pipes.add('1');
+						}
+						if(deletedBlockPos.dir == 3) {
+							pipes.add('4');
+						}
+					}
+					if(i == 2) {
+						if(deletedBlockPos.dir == 2) {
+							pipes.add('-');
+						}
+						if(deletedBlockPos.dir == 1) {
+							pipes.add('3');
+						}
+						if(deletedBlockPos.dir == 0) {
+							pipes.add('4');
+						}
+					}
+					if(i == 3) {
+						if(deletedBlockPos.dir == 3) {
+							pipes.add('-');
+						}
+						if(deletedBlockPos.dir == 1) {
+							pipes.add('2');
+						}
+						if(deletedBlockPos.dir == 0) {
+							pipes.add('1');
+						}
+					}
+				}
+			}
+		}
+		sb.append(pipes.iterator().next());
+	}
+	```
+   - Set에 모든 파이프 모양을 저장한다.
+   - 사방탐색을 하여 해당 파이프와 연결 할 수 없는 모양의 파이프는 지워준다.
+   - 자그레바 바로 전 파이프가 지워진 경우는 따로 구현해주었다.
+
+
+## :black_nib: **Review**
+ - 문제에서 모스크바와 자그레브에 인접한 파이프의 개수가 1개라고 하여 모스크바와 자그레브가 붙어있는 경우를 구현해주지 않았었다.. (문제가 다소 불친절하다..)
+ - 파이프의 모양이 다양하다 보니 구현해야할 것들이 많았다. 끝까지 집중력을 잃지 않고 푸는 것이 중요했던 문제였다.
+
+
+
+
+````
