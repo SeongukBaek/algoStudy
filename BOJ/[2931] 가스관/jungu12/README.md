@@ -24,8 +24,10 @@ static void findDeletedBlockPos(Pos pos) {
 	findDeletedBlockPos(nextPos);
 }
 ```
+   - 문제 조건에 쓸모 없는 파이프가 없다고 명시 되어있음 -> 파이프를 따라가면서 파이가 없어진 곳을 찾는 방법을 선택
+   - 현재 Pos가 모스크바라면 방향이 존재하지 않기에 다른 Pos에서와 다른 task(findNextPosAtMos())를 수행해주어 다음 파이프를 찾음
 
-````java
+```java
   static void findDeletedBlockType() {
 		Set<Character> pipes = new HashSet<>(Arrays.asList('|', '-', '+', '1', '2', '3', '4'));
 		for (int i = 0; i < 4; i++) {
@@ -113,7 +115,7 @@ static void findDeletedBlockPos(Pos pos) {
 		}
 		sb.append(pipes.iterator().next());
 	}
-	```
+```
    - Set에 모든 파이프 모양을 저장한다.
    - 사방탐색을 하여 해당 파이프와 연결 할 수 없는 모양의 파이프는 지워준다.
    - 자그레바 바로 전 파이프가 지워진 경우는 따로 구현해주었다.
