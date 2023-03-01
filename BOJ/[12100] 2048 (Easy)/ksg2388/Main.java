@@ -21,15 +21,6 @@ public class Main {
 			}
 		}
 
-//		temp = copyArray(map);
-//		runCommand(0);
-//
-//		for (int[] a : temp) {
-//			for (int b : a) {
-//				System.out.print(b + " ");
-//			}
-//			System.out.println();
-//		}
 		moveBlock(0, new int[5]);
 		System.out.println(result);
 	}
