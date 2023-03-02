@@ -173,4 +173,4 @@ public class Main{
 		/* 추가된 파이프 출력 */
         System.out.println((x+1) + " " + (y+1) + " "+pipe);
 	}
-}
+} 
