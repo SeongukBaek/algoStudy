@@ -2,7 +2,7 @@
 
 ## :pushpin: **Algorithm**
 
-구현
+구현, 시뮬레이션
 
 ## :round_pushpin: **Logic**
 
