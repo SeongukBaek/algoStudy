@@ -22,31 +22,31 @@ BFS, 조합
 - 벽이 3개 세워진다면 그때 바이러스 전염을 시작한다.
 
 ```java
-	public static int virusInfect(int[][] arr) {
-		Queue<Virus> testQueue = new LinkedList<>();
-		testQueue.addAll(queue);
-		int count = 0;
+public static int virusInfect(int[][] arr) {
+	Queue<Virus> testQueue = new LinkedList<>();
+	testQueue.addAll(queue);
+	int count = 0;
 
-		Virus virus = null;
-		while (!testQueue.isEmpty()) {
-			virus = testQueue.poll();
+	Virus virus = null;
+	while (!testQueue.isEmpty()) {
+		virus = testQueue.poll();
 
-			// 사방탐색하며 바이러스 전염
-			for (int i = 0; i < 4; i++) {
-				int nx = virus.x + dx[i];
-				int ny = virus.y + dy[i];
+		// 사방탐색하며 바이러스 전염
+		for (int i = 0; i < 4; i++) {
+			int nx = virus.x + dx[i];
+			int ny = virus.y + dy[i];
 
-				// 맵 밖으로 나가지 않고 비어있는 공간인 경우
-				if (nx >= 0 && ny >= 0 && nx < n && ny < m && arr[nx][ny] == 0) {
-					testQueue.add(new Virus(nx, ny));
-					arr[nx][ny] = 2;
-				}
+			// 맵 밖으로 나가지 않고 비어있는 공간인 경우
+			if (nx >= 0 && ny >= 0 && nx < n && ny < m && arr[nx][ny] == 0) {
+				testQueue.add(new Virus(nx, ny));
+				arr[nx][ny] = 2;
 			}
-			count++;
 		}
-
-		return count - queue.size();
+		count++;
 	}
+
+	return count - queue.size();
+}
 ```
 
 - BFS를 이용하며 하나씩 전염될때마다 count 값을 증가시킨다.
