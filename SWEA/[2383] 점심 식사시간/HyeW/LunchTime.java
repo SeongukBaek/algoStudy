@@ -110,7 +110,7 @@ public class LunchTime {
             time += stair.get(0).stair;
             moveAll(stair, stair.get(0).stair);
 
-            // 다 내려간 사람 큐에서 제거
+            // 다 내려간 사람 리스트에서 제거
             arrivalFloor(stair);
         }
 
