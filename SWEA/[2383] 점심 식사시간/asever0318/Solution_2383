@@ -1,0 +1,153 @@
+import java.io.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.StringTokenizer;
+
+public class Solution_2383{
+	
+	static class Person{
+		int r, c, stair;
+		int stairTime; // 계단 다 내려간 시간
+		int arriveTime; // 계단에 도착한 시간
+
+		public Person(int r, int c) {
+			super();
+			this.r = r;
+			this.c = c;
+		}
+	}
+	
+	static class Stair{
+		int r, c, k; // k는 계단 길이 
+
+		public Stair(int r, int c, int k) {
+			super();
+			this.r = r;
+			this.c = c;
+			this.k = k;
+		}
+	}
+	
+	static int N, min;
+	static List<Person> persons;
+	static List<Stair> stair;
+	static boolean[] visited;
+	static int[][] map;
+	static Queue<Person>[] queueStair = new LinkedList[2]; // 계단이 2개니까 크기 2로 만듦 
+	
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		int T = Integer.parseInt(br.readLine());
+		
+		for(int t = 1; t <= T; t++) {
+			StringTokenizer st = new StringTokenizer(br.readLine());
+			N = Integer.parseInt(st.nextToken());
+			
+			map = new int[N][N];
+			persons = new ArrayList<>();
+			stair = new ArrayList<>();
+			min = Integer.MAX_VALUE;
+			
+			for(int i = 0; i < N; i++) {
+				st = new StringTokenizer(br.readLine());
+				for(int j = 0; j < N; j++) {
+					map[i][j] = Integer.parseInt(st.nextToken());
+					
+					if(map[i][j] == 1) { // 사람이면 person에 저장
+						persons.add(new Person(i, j));
+					}
+					
+					if(map[i][j] >= 2) { // 계단 입구면 stair에 저장 
+						stair.add(new Stair(i, j, map[i][j]));
+					}
+				}
+			}
+			
+			getMinTime(0);
+			
+			System.out.println("#"+t+" "+min);
+		}
+	}
+	
+	static int simulation() {
+		queueStair[0] = new LinkedList<>(); // 1번 계단
+		queueStair[1] = new LinkedList<>(); // 2번 계단
+		
+		int count = 0; // 계단을 내려간 사람의 수 
+		int time = 1; // 걸린 시간
+		
+		while(true) {
+			
+			for(Queue<Person> q : queueStair) {
+				int size = q.size();
+				
+				if(size == 0) {
+					continue;
+				}
+				
+				for(int j = 0; j < size; j++) {
+					Person person = q.poll(); // 가장 가까운 사람 먼저 
+					Stair ps = stair.get(person.stair); // 해당 사람의 계단 
+					
+					// 계단까지 도착시간 + 계단 내려간 시간이 현재 시간 안에 수행가능하면 
+					if(person.stairTime + ps.k <= time) {
+						count++; // 내려보냄
+						continue;
+					}
+					
+					// 그렇지 않으면 다시 큐로 넣음 
+					q.add(person);
+				}
+			}
+			
+			// 만약 모든 사람이 다 내려오고, 각 계단에 아무도 없으면 끝 
+			if(count == persons.size() && queueStair[0].isEmpty() && queueStair[1].isEmpty()) {
+				return time;
+			}
+			
+			for(int i = 0; i < persons.size(); i++) {
+				
+				if(visited[i]) {
+					continue;
+				}
+				
+				Person person = persons.get(i);
+				// 도착할 때까지 걸리는 시간이 지금 걸린 시간보다 작거나 같고, 계단에 자리가 있으면  
+				if(person.arriveTime + 1 <= time && queueStair[person.stair].size() <= 2) {
+					person.stairTime = time;
+					visited[i] = true;
+					queueStair[person.stair].add(person); // 해당 계단에 등록 
+				}
+			}
+			time++;
+		}
+	}
+	
+	static void getMinTime(int index) {
+		if(index == persons.size()) {
+			for(int i = 0; i < persons.size(); i++) {
+				Person person = persons.get(i);
+				
+				// 계단 앞까지 거리 계산 
+				int R = Math.abs(stair.get(person.stair).r - person.r);
+				int C = Math.abs(stair.get(person.stair).c - person.c);
+				persons.get(i).arriveTime = R + C;
+			}
+			
+			visited = new boolean[index];
+			int result = simulation();
+			if(min > result) {
+				min = result;
+			}
+			return;
+		}
+		
+		persons.get(index).stair = 0; // 1번 계단 
+		getMinTime(index+1);
+		persons.get(index).stair = 1; // 2번 계단 
+		getMinTime(index+1);
+	}
+}
