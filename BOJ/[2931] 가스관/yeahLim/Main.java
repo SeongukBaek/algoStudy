@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Main{
+public class Main {
     static int r, c;
     static char[][] map;
     static int[] moscow; // 모스크바 좌표
@@ -54,19 +54,19 @@ public class Main{
     	
     	// |일때 상,하 체크
     	else if(pipe == '|') {
-    		checkPipe(x-1, y);
+	    checkPipe(x-1, y);
             checkPipe(x+1, y);
     	}
     	
     	// -일때 좌,우 체크
     	else if(pipe == '-') {
-    		checkPipe(x, y-1);
+    	    checkPipe(x, y-1);
             checkPipe(x, y+1);
     	}
     	
     	// +일때 상,하,좌,우 체크
     	else if(pipe == '+') {
-    		checkPipe(x-1, y);
+    	    checkPipe(x-1, y);
             checkPipe(x+1, y);
             checkPipe(x, y-1);
             checkPipe(x, y+1);
@@ -80,13 +80,13 @@ public class Main{
     	
     	// 2일때 상,우 체크
     	else if(pipe == '2') {
-    		checkPipe(x-1, y);
+    	    checkPipe(x-1, y);
             checkPipe(x, y+1);
     	}
     	
     	// 3일때 상,좌 체크
     	else if(pipe == '3') {
-    		checkPipe(x-1, y);
+    	    checkPipe(x-1, y);
             checkPipe(x, y-1);
     	}
     	
@@ -98,19 +98,19 @@ public class Main{
     	
     	// 현 위치가 '.'일때 (파이프가 끊겼을때) : 파이프 추가
     	else if(pipe == '.') {
-    		addPipe(x, y);
+    	    addPipe(x, y);
     	}
     }
     	
     
     /* 방문한 파이프인지 확인 */
 	static void checkPipe(int x, int y) {
-		
+			
 		// 방문안한 파이프일 경우, 이어지는 파이프 계속 탐색하기
 		if(!visited[x][y]) {
-            visited[x][y] = true;   
-           	searchPipes(x, y, map[x][y]);
-        }
+			visited[x][y] = true;   
+			searchPipes(x, y, map[x][y]);
+		}
 	}
 	
 	/* 파이프 추가 */ 
@@ -172,5 +172,5 @@ public class Main{
       
 		/* 추가된 파이프 출력 */
         System.out.println((x+1) + " " + (y+1) + " "+pipe);
-	} 
-} 
+	}
+}
