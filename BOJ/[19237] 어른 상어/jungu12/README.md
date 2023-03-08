@@ -62,7 +62,7 @@ private static void moveStart() {
 ```
 
 - 제일 처음 map에 아무 흔적도 없을 때, 초기 방향에 따라 상어를 이동시켜 줄 때 사용한다.
-- `map[i][j]` 가 null인데 trace가 0이 아니라면 상어가 이동한 위치, `map[i][j]`가 null인데 trace가 0이면 이동하지 않은 상어의 위치이다.
+- map[i][j] 가 null인데 trace가 0이 아니라면 상어가 이동한 위치, map[i][j]가 null인데 trace가 0이면 이동하지 않은 상어의 위치이다.
 
 ```java
 private static void checkAllMap() {
@@ -138,7 +138,7 @@ private static void findNextPos(int i, int j) {
 }
 ```
 
-- 한 cycle안에서 다른상어가 먼저 이동한 곳은 빈칸으로 취급하여야 한다. `map[nx][ny].blanked = true`라면 이런 경우이다.
+- 한 cycle안에서 다른상어가 먼저 이동한 곳은 빈칸으로 취급하여야 한다. map[nx][ny].blanked = true라면 이런 경우이다.
 
 ## :black_nib: **Review**
 

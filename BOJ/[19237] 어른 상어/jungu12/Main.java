@@ -175,7 +175,6 @@ public class Main {
 	private static void checkAllMap() {
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < N; j++) {
-				// 현재 위치에 상어가 있는 경우, trace == K - 1 -> 현재 상어가 그 위치에 존재한다는 의미
 				if (map[i][j] != null && map[i][j].trace == K - 1) {
 					findNextPos(i, j);
 				}
@@ -206,11 +205,9 @@ public class Main {
 		for (int dir = 0; dir < 4; dir++) {
 			int nx = i + dx[dir];
 			int ny = j + dy[dir];
-			// 범위를 벗어나면 continue
 			if (!isIn(nx, ny)) {
 				continue;
 			}
-			//한 cycle안에서 다른상어가 먼저 이동한 곳은 빈칸으로 취급하여야 한다. map[nx][ny].blanked = true가 이런 경우이다.
 			if (map[nx][ny] == null || map[nx][ny].trace == K && map[nx][ny].blanked) {
 				blanks.add(dir);
 				continue;
@@ -267,11 +264,13 @@ public class Main {
 		if (map[nx][ny] != null && map[nx][ny].trace == K) {
 			Shark winShark = fightAndFindWinner(i, j, nx, ny, dir);
 			map[nx][ny] = new Shark(winShark.num, nx, ny, winShark.dir);
+			//흔적이 아닌 빈칸이로 이동했다는 의미의 변수
 			map[nx][ny].blanked = isBlank;
 			outSharkNum++;
 			return;
 		}
 		map[nx][ny] = new Shark(map[i][j].num, nx, ny, dir);
+		//흔적이 아닌 빈칸이로 이동했다는 의미의 변수
 		map[nx][ny].blanked = isBlank;
 	}
 }
