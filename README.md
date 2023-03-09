@@ -81,6 +81,7 @@ git push origin {생성한 브랜치}
 
 |주차|1|2|3|4|5|
 |:---:|:---:|:---:|:---:|:---:|:---:|
-|**1주차**<br> (03.02 ~ 03.08)|[점프](https://www.acmicpc.net/problem/1890)|[어른 상어](https://www.acmicpc.net/problem/19237)|[색종이 붙이기](https://www.acmicpc.net/problem/17136)|[게리맨더링 2](https://www.acmicpc.net/problem/17779)|[직사각형](https://www.acmicpc.net/problem/2527)||
+|**1주차**<br> (03.02 ~ 03.08)|[점프](https://www.acmicpc.net/problem/1890)|[어른 상어](https://www.acmicpc.net/problem/19237)|[색종이 붙이기](https://www.acmicpc.net/problem/17136)|[게리맨더링 2](https://www.acmicpc.net/problem/17779)|[직사각형](https://www.acmicpc.net/problem/2527)|
+|**2주차**<br> (03.09 ~ 03.15)|[멀쩡한 사각형](https://school.programmers.co.kr/learn/courses/30/lessons/62048)|[택배상자](https://school.programmers.co.kr/learn/courses/30/lessons/131704)|[코딩테스트 공부](https://school.programmers.co.kr/learn/courses/30/lessons/118668)|[등산코스 정하기](https://school.programmers.co.kr/learn/courses/30/lessons/118669)|[방금 그곡](https://school.programmers.co.kr/learn/courses/30/lessons/17683)||
 
 
