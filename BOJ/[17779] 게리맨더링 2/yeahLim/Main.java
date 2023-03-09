@@ -83,44 +83,28 @@ public class Main {
 		int i = x;
 		int j = y;
 		while(i<=x+d1 && j>=y-d1) {
-			if(!selected[i][j]) {
-				selected[i][j] = true;
-			}
-			i++;
-			j--;
+			selected[i++][j--] = true;
 		}
 		
 		// 2번 경계선
 		i = x; 
 		j = y;
 		while(i<=x+d2 && j<=y+d2) {
-			if(!selected[i][j]) {
-				selected[i][j] = true;
-			}
-			i++;
-			j++;
+            selected[i++][j++] = true;
 		}
 		
 		// 3번 경계선
 		i = x+d1;
 		j = y-d1;
 		while(i<=x+d1+d2 && j<=y-d1+d2) {
-			if(!selected[i][j]) {
-				selected[i][j] = true;
-			}
-			i++;
-			j++;
+			selected[i++][j++] = true;
 		}
 		
 		// 4번 경계선
 		i=x+d2;
 		j=y+d2;
 		while(i<=x+d2+d1 && j>=y+d2-d1) {
-			if(!selected[i][j]) {
-				selected[i][j] = true;
-			}
-			i++;
-			j--;
+				selected[i++][j--] = true;
 		}
 	}
 	
