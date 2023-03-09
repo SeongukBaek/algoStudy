@@ -22,14 +22,16 @@ public class Rectangle_Main {
 	}
 	
 	private static void distinctionRec(Rectangle first, Rectangle second) {
-		
+
+		//두 사각형 중 왼쪽과 오른쪽에 있는 사각형을 찾는다.
 		Rectangle left = first;
 		Rectangle right = second;
 		if(second.y1 < first.y1) {
 			left = second;
 			right = first;
 		}
-		
+
+		//두 사각형 중 위쪽과 아래쪽에 있는 사각형을 찾는다.
 		Rectangle top = first;
 		Rectangle bottom = second;
 		if(second.x2 < first.x2) {
