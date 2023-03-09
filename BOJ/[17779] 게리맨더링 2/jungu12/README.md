@@ -32,38 +32,6 @@
 - 그은 경계선을 활용하여 인구수의 차이를 구하는 calMaxGap을 호출해준다.
 
 ```java
-private static void moveStart() {
-	for (int i = 0; i < N; i++) {
-		for (int j = 0; j < N; j++) {
-			if (map[i][j] != null && map[i][j].trace == 0) {
-				for (int dir = 0; dir < 4; dir++) {
-					int selectedDir = priorDir[map[i][j].num][map[i][j].dir][dir];
-					int nx = i + dx[selectedDir];
-					int ny = j + dy[selectedDir];
-					if (isIn(nx, ny)) {
-						// 다른 상어 만난 경우
-						if (map[nx][ny] != null && map[nx][ny].trace == K) {
-							Shark winShark = fightAndFindWinner(i, j, nx, ny, selectedDir);
-							map[nx][ny] = new Shark(winShark.num, nx, ny, winShark.dir);
-							map[i][j].trace = K - 1;
-							outSharkNum++;
-							break;
-						}
-						map[nx][ny] = new Shark(map[i][j].num, nx, ny, selectedDir);
-						map[i][j].trace = K - 1;
-						break;
-					}
-				}
-			}
-		}
-	}
-}
-```
-
-- 제일 처음 map에 아무 흔적도 없을 때, 초기 방향에 따라 상어를 이동시켜 줄 때 사용한다.
-- map[i][j] 가 null인데 trace가 0이 아니라면 상어가 이동한 위치, map[i][j]가 null인데 trace가 0이면 이동하지 않은 상어의 위치이다.
-
-```java
 	private static void makeBorder(int i, int j, int d1, int d2) {
 		for (int index = 0; index <= d1; index++) {
 			isBorder[i + index][j - index] = true;
