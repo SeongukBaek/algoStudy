@@ -63,4 +63,5 @@ static boolean searchMusic(String target, String score) {
 
 ## :black_nib: **Review**
 
-- 적혀있는 그대로 풀었다.
+- 적혀있는 그대로 풀었다. 재밌었땅
+- 음악에서 음를 따고 그 일련의 음에 해당되는 음악을 찾아줄 수 있구나! 실제 음악찾기 어플을 애용하는 사람으로서, 원리가 궁금했었는데, 어느정도 해소가 됐다. 

@@ -2,7 +2,6 @@ import java.util.*;
 
 class Solution {
 	
-
 	static Map<Character, Integer> sharpKey = new HashMap<Character, Integer>(){
 		{
 			put('C', 1);
@@ -14,6 +13,7 @@ class Solution {
 			put('B', 7);
 		}
 	}; 
+
 	public static String solution(String m, String[] musicInfos) {
 		int answer = -1;
 		String target = convertToIntKey(m);
@@ -32,9 +32,7 @@ class Solution {
 			
 		}
 		
-		if(answer == -1) return "(None)";
-		
-		return music[answer][0];
+		return (answer == -1) ? "(None)" : music[answer][0];
 	}
 
 	/* #키 숫자로 변환 */
