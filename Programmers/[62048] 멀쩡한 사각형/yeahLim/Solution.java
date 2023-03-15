@@ -1,8 +1,9 @@
 class Solution {
+
     public long solution(int w, int h) {
         
 		int gcd = gcd(w, h);
-		long diagonal = w + h - gcd;
+		long diagonal = w + h - gcd; // 대각선에 걸쳐진 사각형의 개수
         return (long)w * h - diagonal;
     }
 	
