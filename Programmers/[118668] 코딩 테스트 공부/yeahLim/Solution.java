@@ -45,7 +45,6 @@ public class Solution {
             }
 
         }
-        System.out.println(dp[10][7]);
 
         return dp[maxAlp][maxCop];
     }
