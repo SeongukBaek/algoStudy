@@ -115,6 +115,8 @@ class Solution {
 				}
 			}
 		}
+
+		Arrays.sort(summits);
 		
 		// 산봉우리의 intensity 최소값 찾아주기 
 		for(int i = 0; i < summits.length; i++) {
