@@ -76,12 +76,12 @@ public class Solution {
             // intensity가 더 크면 넘어간다
             if(d[edge] < intensity) continue;
             
-            // 작으면 그 다음 경로를 찾는다
+            // 작거나 같으면 그 다음 경로를 찾는다
             for(Node nd : nodes[edge]) {
-                int dist = Math.max(d[edge], nd.intensity); // intensity 업데이트
-                // 다음 경로의 intensity가 더 작으면 
+                int dist = Math.max(d[edge], nd.intensity); // intensity 업데이트 : max(이전까지의 intensity, 현재 intensity)
+                // 다음 경로의 intensity가 더 크면
                 if(d[nd.edge] > dist) {
-                    d[nd.edge] = dist; // 그 경로의 intensity 업데이트
+                    d[nd.edge] = dist; // 그 경로의 intensity를 작은 값으로 업데이트
                     q.add(new int[] {nd.edge, dist});
                 }
             }
