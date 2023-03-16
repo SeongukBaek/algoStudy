@@ -82,6 +82,7 @@ git push origin {생성한 브랜치}
 |주차|1|2|3|4|5|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |**1주차**<br> (03.02 ~ 03.08)|[점프](https://www.acmicpc.net/problem/1890)|[어른 상어](https://www.acmicpc.net/problem/19237)|[색종이 붙이기](https://www.acmicpc.net/problem/17136)|[게리맨더링 2](https://www.acmicpc.net/problem/17779)|[직사각형](https://www.acmicpc.net/problem/2527)|
-|**2주차**<br> (03.09 ~ 03.15)|[멀쩡한 사각형](https://school.programmers.co.kr/learn/courses/30/lessons/62048)|[택배상자](https://school.programmers.co.kr/learn/courses/30/lessons/131704)|[코딩테스트 공부](https://school.programmers.co.kr/learn/courses/30/lessons/118668)|[등산코스 정하기](https://school.programmers.co.kr/learn/courses/30/lessons/118669)|[방금 그곡](https://school.programmers.co.kr/learn/courses/30/lessons/17683)||
+|**2주차**<br> (03.09 ~ 03.15)|[멀쩡한 사각형](https://school.programmers.co.kr/learn/courses/30/lessons/62048)|[택배상자](https://school.programmers.co.kr/learn/courses/30/lessons/131704)|[코딩테스트 공부](https://school.programmers.co.kr/learn/courses/30/lessons/118668)|[등산코스 정하기](https://school.programmers.co.kr/learn/courses/30/lessons/118669)|[방금그곡](https://school.programmers.co.kr/learn/courses/30/lessons/17683)|
+|**3주차**<br> (03.16 ~ 03.22)|[마법의 엘리베이터](https://school.programmers.co.kr/learn/courses/30/lessons/148653)|[미로 탈출](https://school.programmers.co.kr/learn/courses/30/lessons/159993)|[표현 가능한 이진트리](https://school.programmers.co.kr/learn/courses/30/lessons/150367)|[톱니바퀴](https://www.acmicpc.net/problem/14891)|[코드트리 빵](https://www.codetree.ai/training-field/frequent-problems/codetree-mon-bread/description?page=3&pageSize=20&username=)||
 
 
