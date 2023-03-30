@@ -1,8 +1,8 @@
-# [4803] 트리
+# 꼬리잡기놀이
 
 ## :pushpin: **Algorithm**
 
-DPS
+DPS, 
 
 ## :round_pushpin: **Logic**
 
