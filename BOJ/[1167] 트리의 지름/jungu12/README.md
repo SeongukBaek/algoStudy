@@ -1,4 +1,4 @@
-# [1167] 트리의 짊
+# [1167] 트리의 지름
 
 ## :pushpin: **Algorithm**
 
@@ -29,7 +29,8 @@ private static void findEnd(int vertex, int length) {
 
 - 아무 Vertex에서 DFS로 가장 거리가 먼 Vertex를 찾으면 그 Vertex가 트리의 한쪽 끝이다.
 - 위에서 찾은 트리의 한쪽 끝 Vertex로 부터 가장 거리가 먼 Vertex를 찾으면 또 다른 트리의 한쪽 끝을 찾은 것이다.
-- 위 두 점을 이용하여 트리의 지름을 구할 수 있다. -짧게 요약하면 DFS 두번 돌리면 트리의 지름을 구할 수 있다~
+- 위 두 점을 이용하여 트리의 지름을 구할 수 있다. 
+- 짧게 요약하면 DFS 두번 돌리면 트리의 지름을 구할 수 있다~
 
 ## :black_nib: **Review**
 
