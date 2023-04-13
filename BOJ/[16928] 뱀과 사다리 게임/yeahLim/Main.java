@@ -35,7 +35,7 @@ public class Main {
 		}
 		Deque<Current> queue = new ArrayDeque<>();
 		queue.add(new Current(1, 0));
-		boolean[] visited = new boolean[101];
+		boolean[] visited = new boolean[100]; // 100번 째 칸에 대한 방문 여부는 저장할 필요 없음
 		int answer = 100;
 		
 		while(!queue.isEmpty()) {
