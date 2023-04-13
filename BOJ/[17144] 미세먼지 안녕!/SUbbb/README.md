@@ -19,14 +19,14 @@ private static int goodByeDust() {
 - 코드는 먼지를 확산시키고, 공기청정기를 동작시킨다. 정해진 시간이 경과한 후, 전체 미세 먼지를 반환한다.
 
 ```java
-private void spreadDust() {...}
+private static void spreadDust() {...}
 ```
 
 - 미세 먼지를 확산시킨다.
 - 이때 업데이트할 미세 먼지 정보를 `int[][] tmp` 에 저장하고, 확산이 끝난 이후 `room[][]` 을 업데이트한다.
 
 ```java
-private void runCleaner() {...}
+private static void runCleaner() {...}
 ```
 
 - 공기 청정기의 바람 방향을 따라 순차적으로 미세 먼지를 이동시킨다.
