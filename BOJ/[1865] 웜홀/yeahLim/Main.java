@@ -65,7 +65,7 @@ public class Main {
                 for(Road road : roads[j]) {
                     dist[road.dest] = Math.min(dist[road.dest], dist[j] + road.time);
                 }
-            }
+            } 
         }
 
         // 값이 갱신되면 음수 사이클 존재
