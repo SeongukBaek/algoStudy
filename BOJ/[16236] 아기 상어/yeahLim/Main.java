@@ -54,7 +54,7 @@ public class Main {
             // 우선순위 1. 거리순 2. 가장 위쪽 3. 가장 왼쪽
             pq = new PriorityQueue<>((o1, o2) ->
                     (o1.dist != o2.dist) ? Integer.compare(o1.dist, o2.dist) :
-                            (o1.x != o2.x) ? Integer.compare(o1.x, o2.x) : Integer.compare(o1.y, o2.y));
+                    (o1.x != o2.x) ? Integer.compare(o1.x, o2.x) : Integer.compare(o1.y, o2.y));
             pq.offer(new Current(sharkX, sharkY, 0)); // 상어의 x좌표, y좌표, 이동한 거리
             visited[sharkX][sharkY] = true;
 
