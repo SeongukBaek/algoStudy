@@ -1,8 +1,8 @@
-# [2263] 트리의 순회
+# [49994] 방문 길이
 
 ## :pushpin: **Algorithm**
 
-Divide and Conquer
+구현
 
 ## :round_pushpin: **Logic**
 
@@ -36,9 +36,9 @@ public int solution(String dirs) {
     }
 ```
 
-- 음수 사이클이 존재한다면 문제에서 찾고자 하는 조건을 만족하는 경우이다.
-- 음수 사이클이 생기는지 확인하여 생긴다면 true를 반환한다.
+- set에 도로에 대한 정보를 String 으로 저장한다.
+- 안 겹치는 도로만 set에 추가해준다.
 
 ## :black_nib: **Review**
 
-- 벨만 포드 알고리즘에 대한 이해도가 부족하다..
+- 간단한 구현 문제였다.

@@ -38,4 +38,5 @@ class Solution {
         answer = set.size();
         return answer;
     }
+    
 }
