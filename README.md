@@ -93,4 +93,5 @@ git push origin {생성한 브랜치}
 |주차|1|2|3|4|5|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |**1주차**<br> (03.30 ~ 04.12)|[정수 삼각형](https://www.acmicpc.net/problem/1932)|[뱀과 사다리 게임](https://www.acmicpc.net/problem/16928)|[트리의 지름](https://www.acmicpc.net/problem/1167)|[미세먼지 안녕!](https://www.acmicpc.net/problem/17144)|[팩맨](https://www.codetree.ai/training-field/frequent-problems/pacman/description?page=3&pageSize=20&username=)|
-|**2주차**<br> (04.13 ~ 04.19)|[아기 상어](https://www.acmicpc.net/problem/16236)|[DSLR](https://www.acmicpc.net/problem/9019)|[트리의 순회](https://www.acmicpc.net/problem/2263)|[웜홀](https://www.acmicpc.net/problem/1865)|[방문 길이](https://school.programmers.co.kr/learn/courses/30/lessons/49994)||
+|**2주차**<br> (04.13 ~ 04.19)|[아기 상어](https://www.acmicpc.net/problem/16236)|[DSLR](https://www.acmicpc.net/problem/9019)|[트리의 순회](https://www.acmicpc.net/problem/2263)|[웜홀](https://www.acmicpc.net/problem/1865)|[방문 길이](https://school.programmers.co.kr/learn/courses/30/lessons/49994)|
+|**3주차**<br> (04.20 ~ 04.26)|[2×n 타일링](https://www.acmicpc.net/problem/11726)|[최대 힙](https://www.acmicpc.net/problem/11279)|[숨바꼭질 3](https://www.acmicpc.net/problem/13549)|[후위 표기식](https://www.acmicpc.net/problem/1918)|[양궁대회](https://school.programmers.co.kr/learn/courses/30/lessons/92342)||
