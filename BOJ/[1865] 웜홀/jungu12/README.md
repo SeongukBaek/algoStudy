@@ -1,8 +1,8 @@
-# [2263] 트리의 순회
+# [1865] 웜홀
 
 ## :pushpin: **Algorithm**
 
-Divide and Conquer
+벨만포드 알고리즘
 
 ## :round_pushpin: **Logic**
 
