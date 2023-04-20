@@ -2,7 +2,7 @@
 
 ## :pushpin: **Algorithm**
 
-시뮬레이션, BFS
+시뮬레이션,BFS
 
 ## :round_pushpin: **Logic**
 
@@ -65,4 +65,4 @@ private static void findFish() {
 
 ## :black_nib: **Review**
 
-- 구현할게 많지 않은 시뮬레이션 문제였다 !
+- 구현할게 많지 않은 시뮬레
