@@ -1,9 +1,7 @@
-import java.util.*;
-
 class Solution {
     private int maxDifference;
     private int[] apeach;
-    private int[] answer = {-1};
+    private int[] answer = { -1 };
 
     public int[] solution(int n, int[] info) {
         apeach = info;
@@ -65,7 +63,7 @@ class Solution {
 
     /**
      * 화살 정보에 따른 어피치와 라이언의 점수 반환
-     * */
+     */
     private int[] computeSum(int[] ryan) {
         int apeachSum = 0;
         int ryanSum = 0;
@@ -82,12 +80,12 @@ class Solution {
             }
         }
 
-        return new int[] {apeachSum, ryanSum};
+        return new int[] { apeachSum, ryanSum };
     }
 
     /**
      * 전달받은 라이언의 화살 정보로 정답을 갱신할 수 있는지 반환
-     * */
+     */
     private boolean canUpdate(int[] ryan) {
         for (int index = 10; index >= 0; index--) {
             if (ryan[index] == answer[index]) {
