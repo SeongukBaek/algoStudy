@@ -65,4 +65,4 @@ private static void findFish() {
 
 ## :black_nib: **Review**
 
-- 구현할게 많지 않은 시뮬레
+- 구현할게 많지 않은 시뮬레이션 문제였다.
