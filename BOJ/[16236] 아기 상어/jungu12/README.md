@@ -2,7 +2,7 @@
 
 ## :pushpin: **Algorithm**
 
-시뮬레이션,BFS
+시뮬레이션, BFS
 
 ## :round_pushpin: **Logic**
 
