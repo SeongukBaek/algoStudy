@@ -1,32 +1,31 @@
-import java.util.Arrays;
-
 class Solution {
-    int solution(int[][] land) {
-    	int[] scores = land[0].clone();
-    	
-        for (int row = 1; row < land.length; row++) {
-            // 현재 행의 얻을 수 있는 최댓값 갱신을 저장할 배열
-            int[] tempScore = new int[4];
-            
-            for (int col = 0; col < 4; col++) {
-                int current = scores[col];
-                
-                for (int scoreIndex = 0; scoreIndex < 4; scoreIndex++) {
-                    // 현재 열과 같은 열은 패스
-                    if (scoreIndex == col) {
-                        continue;
-                    }
-                    
-                    if (tempScore[scoreIndex] < land[row][scoreIndex] + current) {
-                    	tempScore[scoreIndex] = land[row][scoreIndex] + current;
-                    }
-                }
+    private final int A = 65;
+    private final int Z = 90;
+    
+    public int solution(String name) {
+        int answer = 0;
+        int length = name.length();
+        int move = length - 1; // 좌우 움직임 수를 체크
+
+        for (int index = 0; index < length; index++) {
+            answer += convertCost(name.charAt(index)); 
+
+            int next = index + 1;
+            // 연속되는 A 갯수 확인
+            while (next < length && name.charAt(next) == 'A') {
+                next++;
             }
-            
-            // 현재 행에 대한 최댓값 갱신 이후, 점수 배열 갱신
-            scores = tempScore.clone();
+
+            // 순서대로 가는 것과, 뒤로 돌아가는 것 중 이동수가 적은 것을 선택
+            move = Math.min(move, index * 2 + length - next);
+            // BBBBAAAAAAAB 와 같이, 처음부터 뒷부분을 먼저 입력하는 것이 더 빠른 경우까지 고려하려면 아래의 코드가 필요
+            move = Math.min(move, (length - next) * 2 + index);
         }
         
-        return Arrays.stream(scores).max().getAsInt();
+        return answer + move;
+    }
+    
+    private int convertCost(char word) {
+        return Math.min(Z - word + 1, word - A);
     }
 }
