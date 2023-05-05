@@ -3,7 +3,6 @@ import java.util.*;
 class Solution {
     static int n;
     static int moveCnt;
-    static boolean[] isA;
     
     public int solution(String name) {
         
