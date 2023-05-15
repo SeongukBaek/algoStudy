@@ -1,7 +1,5 @@
-import java.util.*;
-
 class Solution {
-    private int[][] directions = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+    private int[][] directions = { { 0, 1 }, { 1, 0 }, { 0, -1 }, { -1, 0 } };
     private int[][] costs;
     private int size;
     private int minCost = Integer.MAX_VALUE;
