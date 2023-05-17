@@ -1,36 +1,41 @@
-# [67259] 경주로 건설
+# [152995] 인사고과
 
 ## :pushpin: **Algorithm**
 
-BFS
+정렬, 우선순위 큐
 
 ## :round_pushpin: **Logic**
 
 ```java
-// 직선으로 가는 경우
-if (i % 2 == cur.dir % 2) {
-    if (cost[nx][ny][i] > cost[cur.x][cur.y][cur.dir] + 100) {
-        cost[nx][ny][i] = cost[cur.x][cur.y][cur.dir] + 100;
-        q.offer(new Current(nx, ny, i));
+Arrays.sort(scores, (o1, o2) -> { return (o1[0] == o2[0]) ? o1[1] - o2[1] : o2[0] - o1[0]; });  // 근무점수 내림차순, 동료점수 오름차순
+```
 
-    }
-}
-// 코너로 도는 경우
-else {
-    if (cost[nx][ny][i] > cost[cur.x][cur.y][cur.dir] + 600) {
-        cost[nx][ny][i] = cost[cur.x][cur.y][cur.dir] + 600;
-        q.offer(new Current(nx, ny, i));
+- 근무 점수는 내림차순, 동료 점수는 오름차순으로 정렬한다.
 
+```java
+PriorityQueue<int[]> rank = new PriorityQueue<>((o1, o2) -> { return (o2[0] + o2[1]) - (o1[0] + o1[1]); });
+```
+
+- 근무 점수와 동료 점수의 합을 내림차순으로 Priority Queue를 만든다.
+
+```java
+int[] maxScore = scores[0]; // 동료점수 기준 최대값
+
+/* 인센티브 받을 수 있는 사람 구하기 */
+for (int i = 1; i < scores.length; i++) {
+    if (scores[i][1] >= maxScore[1]) {
+        rank.offer(scores[i]);
+        maxScore = scores[i].clone();
     }
 }
 ```
 
-- 상(0), 하(1), 좌(2), 우(3)의 방향 숫자를 지정하였다.
-- 방향 숫자를 짝수로 나눴을 때, 같을 경우를 직선으로 가는 경우, 다를 경우 코너로 도는 경우로 나누어서 진행했다.
-- cost값이 더 작아질 경우에만 queue에 넣어주었다.
+- 현재 score의 근무 점수(`score[i][1]`)는 이전 순서들의 근무 점수보다 낮다.
+  - 따라서, 동료 점수도 이전 순서들 보다 낮은 경우는 인센티브를 받을 수 없다.
+- maxScore는 이전 순서들의 동료 점수 중 가장 큰 경우이다.
+  - 따라서, maxScore의 동료점수보다 작은 경우는 패스하고,
+  - 높은 경우에는 rank에 넣어주고, maxScore를 업데이트해준다.
 
 ## :black_nib: **Review**
 
-- 처음에 DFS로 풀려고하다가, 코드 작성하면서 BFS로 바꾸어서 풀었다.
-- 방향처리 할때, 어느 방향으로 왔는지 처리하는 부분이 중요했다.
-- cost의 초기 값을 MAX값으로 주었는데, 이때 start지점의 cost값을 다시 0으로 설적해 주지 않아서 계속 MAX값만 정답이 나왔다. 이 부분 조심해야겠다.
+- 한쪽은 오름차순, 한쪽은 내림차순을 이용하여 최대값을 통해 비교하는 방법 잊지 말아야겠다!
