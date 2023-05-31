@@ -7,38 +7,39 @@
 ## :round_pushpin: **Logic**
 
 ```java
-// 누적합
-int answer = MAX;
-// 첫 집을 하나의 색으로 고정한 후 모든 집을 색칠해보고 마지막에 answer 갱신
-for (int color = 0; color < 3; color++) {
-    //RED, GREEN, BLUE로 칠하는 경우 각 색을 제외한 나머지는 최댓값으로 초기화해서 사용하지 않도록 한다.
-    for (int currentColor = 0; currentColor < 3; currentColor++) {
-        if (currentColor == color) {
-            dp[0][currentColor] = colorCosts[0][currentColor];
-        } else {
-            dp[0][currentColor] = MAX;
-        }
+Queue<Node> nodes = new PriorityQueue<>(Comparator.comparingInt(value -> value.time));
+nodes.add(new Node(start, 0));
+// start -> start = 0
+times[start] = 0;
+
+while (!nodes.isEmpty()) {
+    Node current = nodes.poll();
+
+    // 현재 번호
+    int now = current.index;
+    // 현재 번호까지 오는 시간
+    int time = current.time;
+
+    // 현재 번호로 다시 방문했는데, 이미 더 빠르게 왔다면 패스
+    if (times[now] < time) {
+        continue;
     }
 
-    // 첫 집 이후의 집들을 색칠하는 최소 비용 계산
-    for (int house = 1; house < N; house++) {
-        int prevHouse = house - 1;
-        dp[house][0] = Math.min(dp[prevHouse][1], dp[prevHouse][2]) + colorCosts[house][0];
-        dp[house][1] = Math.min(dp[prevHouse][0], dp[prevHouse][2]) + colorCosts[house][1];
-        dp[house][2] = Math.min(dp[prevHouse][0], dp[prevHouse][1]) + colorCosts[house][2];
-    }
+    for (Node next : dependencyInfo.get(now)) {
+        int nextTime = times[now] + next.time;
 
-    // answer 갱신
-    for (int currentColor = 0; currentColor < 3; currentColor++) {
-        if (currentColor != color) {
-            answer = Math.min(answer, dp[N - 1][currentColor]);
+        if (times[next.index] <= nextTime) {
+            continue;
         }
+
+        times[next.index] = nextTime;
+        nodes.add(new Node(next.index, nextTime));
     }
 }
 ```
 
-- `dp[i][j] = k` -> 1 ~ i번째 이전 집까지는 모두 색칠했고, 현재 i번째 집을 j색으로 칠하는 최소 비용 k
-- 조건 만족을 위해, 첫번째 집을 칠할 색을 고정해두고, 다른 색을 칠하는 비용은 최댓값으로 초기화한다.
+- 이동 시간을 기준으로 하는 우선순위 큐를 사용한다.
+- 방문했던 곳이라도, 더 작은 비용으로 방문할 수 있다면 갱신한다.
 
 ## :black_nib: **Review**
 
