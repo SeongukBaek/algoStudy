@@ -2,7 +2,7 @@
 
 ## :pushpin: **Algorithm**
 
-분리 집합, DFS
+union-find
 
 ## :round_pushpin: **Logic**
 
