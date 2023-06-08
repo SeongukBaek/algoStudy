@@ -99,7 +99,7 @@ git push origin {생성한 브랜치}
 
 </details>
 
-<details><summary>🧷 5월 문제집</summary>
+<details><summary>📎 5월 문제집</summary>
 
 |주차|1|2|3|4|5|
 |:---:|:---:|:---:|:---:|:---:|:---:|
