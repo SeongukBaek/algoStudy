@@ -109,7 +109,7 @@ git push origin {생성한 브랜치}
 
 </details>
 
-📎 6월 문제집
+🖇️ 6월 문제집
 |주차|1|2|3|4|5|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |**1주차**<br> (06.08 ~ 06.14)|[포도주 시식](https://www.acmicpc.net/problem/2156)|[벽 부수고 이동하기 4](https://www.acmicpc.net/problem/16946)|[파티](https://www.acmicpc.net/problem/1238)|[피보나치 수 6](https://www.acmicpc.net/problem/11444)|[영우는 사기꾼?](https://www.acmicpc.net/problem/14676)||
