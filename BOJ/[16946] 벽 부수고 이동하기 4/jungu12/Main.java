@@ -77,10 +77,6 @@ public class Main {
 				continue;
 			}
 
-			if (group[nx][ny] == 0) {
-				continue;
-			}
-
 			if (map[nx][ny] == 0) {
 				adjacentGroup.add(group[nx][ny]);
 			}
