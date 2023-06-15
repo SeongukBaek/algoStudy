@@ -5,7 +5,7 @@ public class Main {
     static int N, M;
     static int[] dr = { -1, 1, 0, 0 };
     static int[] dc = { 0, 0, -1, 1 };
-    static char[][] map;
+    static int[][] map;
     static int[][] mark;
     static Map<Integer, Integer> group;
 
@@ -17,18 +17,21 @@ public class Main {
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
 
-        map = new char[N][M];
+        map = new int[N][M];
         for (int i = 0; i < N; i++) {
-            map[i] = br.readLine().toCharArray();
+            String input = br.readLine();
+            for(int j = 0; j < M; j++) {
+                map[i][j] = input.charAt(j) - '0';
+            }
         }
 
         mark = new int[N][M];
         group = new HashMap<>();
-        int num = 1;
+        int num = 2;
         for (int x = 0; x < N; x++) {
             for (int y = 0; y < M; y++) {
                 // 벽이고 이미 확인한 칸은 확인하지 않는다
-                if (map[x][y] == '1' || mark[x][y] > 0) {
+                if (map[x][y] != 0) {
                     continue;
                 }
                 // 그룹 번호가 가진 칸의 개수 저장하기
@@ -47,12 +50,12 @@ public class Main {
         }
         System.out.println(sb.toString());
     }
-    /*그룹을 표시하고 그룹마다 가진 칸의 개수를 반환한다*/
+
     private static int markRoad(int x, int y, int num) {
         Deque<Node> roads = new ArrayDeque<>();
 
         roads.offer(new Node(x, y));
-        mark[x][y] = num;
+        map[x][y] = num;
 
         int cnt = 1;
         while (!roads.isEmpty()) {
@@ -62,26 +65,26 @@ public class Main {
                 int dx = cur.x + dr[i];
                 int dy = cur.y + dc[i];
 
-                if (isMapOut(dx, dy) || map[dx][dy] == '1' || mark[dx][dy] > 0) {
+                if (isMapOut(dx, dy) || map[dx][dy] != 0) {
                     continue;
                 }
 
-                mark[dx][dy] = num;
+                map[dx][dy] = num;
                 roads.offer(new Node(dx, dy));
                 cnt++;
             }
         }
         return cnt;
     }
-    /*벽을 부실 경우 갈 수 있는 칸의 개수를 반환한다*/
+
     private static int countMap(int x, int y, int num) {
         // 벽인 칸만 확인하기
-        if (map[x][y] == '0') {
+        if (map[x][y] != 1) {
             return 0;
         }
 
         // 벽을 부쉈을 때 갈수있는 칸 개수 세기
-        boolean[] checked = new boolean[num];
+        Set<Integer> checked = new HashSet<>();
         int cnt = 1; // 칸 개수
         for (int i = 0; i < 4; i++) {
             int dx = x + dr[i];
@@ -91,13 +94,13 @@ public class Main {
                 continue;
             }
             // 현재 칸과 인접한 그룹 번호
-            int groupNum = mark[dx][dy];
+            int groupNum = map[dx][dy];
 
-            if (checked[groupNum] || groupNum < 1) {
+            if (checked.contains(groupNum) || groupNum < 2 ) {
                 continue;
             }
             cnt += group.get(groupNum);
-            checked[groupNum] = true;
+            checked.add(groupNum);
         }
 
         return cnt % 10;
