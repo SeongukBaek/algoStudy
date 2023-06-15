@@ -112,4 +112,5 @@ git push origin {생성한 브랜치}
 🖇️ 6월 문제집
 |주차|1|2|3|4|5|
 |:---:|:---:|:---:|:---:|:---:|:---:|
-|**1주차**<br> (06.08 ~ 06.14)|[포도주 시식](https://www.acmicpc.net/problem/2156)|[벽 부수고 이동하기 4](https://www.acmicpc.net/problem/16946)|[파티](https://www.acmicpc.net/problem/1238)|[피보나치 수 6](https://www.acmicpc.net/problem/11444)|[영우는 사기꾼?](https://www.acmicpc.net/problem/14676)||
+|**1주차**<br> (06.08 ~ 06.14)|[포도주 시식](https://www.acmicpc.net/problem/2156)|[벽 부수고 이동하기 4](https://www.acmicpc.net/problem/16946)|[파티](https://www.acmicpc.net/problem/1238)|[피보나치 수 6](https://www.acmicpc.net/problem/11444)|[영우는 사기꾼?](https://www.acmicpc.net/problem/14676)|
+|**2주차**<br> (06.15 ~ 06.21)|[주식가격](https://school.programmers.co.kr/learn/courses/30/lessons/42584)|[무인도 여행](https://school.programmers.co.kr/learn/courses/30/lessons/154540)|[표 병합](https://school.programmers.co.kr/learn/courses/30/lessons/150366)|[골목 대장 호석 - 기능성](https://www.acmicpc.net/problem/20168)|[문자열 지옥에 빠진 호석](https://www.acmicpc.net/problem/20166)||
