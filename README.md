@@ -6,6 +6,19 @@
 **마감 기한** : 매주 수요일 오후 6시
 - 벌금 : 문제당 4000원 (벌금은 제작진들이 회식비로 맛있게 사용할 예정입니다.)
 
+## 👥 참여자
+> [SeongukBaek](https://github.com/SeongukBaek)
+> 
+> [Jungu12](https://github.com/Jungu12)
+> 
+> [ksg2388](https://github.com/ksg2388)
+> 
+> [YeahLim](https://github.com/YeahLim)
+> 
+> [tlalswn23](https://github.com/tlalswn23)
+> 
+> [HyeW](https://github.com/HyeW) - (졸업👩‍🎓)
+
 ## 💁‍♂️ 스터디 규칙
 ### 문제 풀이
 매주 **5문제**씩 해결하고, 오프라인으로 진행되는 **리뷰 시간**에 의견을 공유합니다.<br/>
