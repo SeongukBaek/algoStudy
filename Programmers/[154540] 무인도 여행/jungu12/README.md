@@ -2,45 +2,119 @@
 
 ## :pushpin: **Algorithm**
 
-BFS
+union-find, 구현
 
 ## :round_pushpin: **Logic**
 
 ```java
-void bfs(int i, int j) {
-    Queue<int[]> que = new LinkedList<>();
-    int countFood = map[i][j];
-    visited[i][j] = true;
-    int[] dx = { -1, 0, 1, 0 };
-    int[] dy = { 0, -1, 0, 1 };
+public String[] solution(String[] commands) {
+    List<String> result = new ArrayList<>();
 
-    que.add(new int[] {i, j});
+    for (int i = 1; i <= 2500; i++) {
+        union[i] = i;
+        value[i] = "";
+    }
 
-    while(!que.isEmpty()) {
-        int[] cur = que.poll();
+    for (int i = 0; i < commands.length; i++) {
+        String[] command = commands[i].split(" ");
+        String type = command[0];
 
-        for (int dir = 0; dir < 4; dir++) {
-            int nx = cur[0] + dx[dir];
-            int ny = cur[1] + dy[dir];
+        //명령어가 UPDATE인 경우
+        if (type.equals("UPDATE")) {
+            //"UPDATE value1 value2"인 경우
+            if (command.length == 3) {
+                String before = command[1];
+                String after = command[2];
+                for (int j = 1; j <= 2500; j++) {
+                    if (value[j].equals(before)) {
+                        value[j] = after;
+                    }
+                }
+                continue;
+            }
+            //"UPDATE r c value"인 경우
+            if (command.length == 4) {
+                int x = Integer.parseInt(command[1]);
+                int y = Integer.parseInt(command[2]);
+                String after = command[3];
+                int idx = convert(x, y);
+                value[find(idx)] = after;
+            }
+            continue;
+        }
+        //명령어가 MERGE인 경우
+        if(type.equals("MERGE")) {
+            int x1 = Integer.parseInt(command[1]);
+            int y1 = Integer.parseInt(command[2]);
+            int x2 = Integer.parseInt(command[3]);
+            int y2 = Integer.parseInt(command[4]);
 
-            if(!isIn(nx, ny)) {
+            int idx1 = convert(x1, y1);
+            int idx2 = convert(x2, y2);
+
+            int root1 = find(idx1);
+            int root2 = find(idx2);
+
+            if(root1 == root2) {
                 continue;
             }
 
-            if(map[nx][ny] != 0 && !visited[nx][ny]) {
-                countFood += map[nx][ny];
-                visited[nx][ny] = true;
-                que.add(new int[] {nx, ny});
+            if(value[root1].equals("")) {
+                value[root1] = value[root2];
+            }
+            value[root2] = "";
+            union(root1, root2);
+            continue;
+        }
+        //명령어가 UNMERGE인 경우
+        if (type.equals("UNMERGE")) {
+            int x = Integer.parseInt(command[1]);
+            int y = Integer.parseInt(command[2]);
+
+            int idx = convert(x, y);
+            int root = find(idx);
+
+            String rootString = value[root];
+            value[root] = "";
+            value[idx] = rootString;
+
+
+            List<Integer> deletes = new ArrayList<>();
+            for (int j = 1; j <= 2500; j++) {
+                if(find(j) == root) {
+                    deletes.add(j);
+                }
+            }
+
+            for (int deleteIdx : deletes) {
+                union[deleteIdx] = deleteIdx;
+            }
+            continue;
+        }
+        //명령어가 PRINT인 경우
+        if (type.equals("PRINT")) {
+            int x = Integer.parseInt(command[1]);
+            int y = Integer.parseInt(command[2]);
+            int idx = convert(x, y);
+            int root = find(idx);
+
+            if(value[root].equals("")) {
+                result.add("EMPTY");
+            } else {
+                result.add(value[root]);
             }
         }
     }
-    answer.add(countFood);
+
+    return result.toArray(new String[0]);
 }
 ```
 
-- 방문하지 않은 칸에 도착 했다면, 아직 계산을 하지 않은 무인도다.
-- 그렇다면 bfs를 돌려 계산을 하고 방문처리를 해주었다.
+- 구현에 편의성을 위해 2차원 배열을 1차원 배열로 변경하여 구현하였다.
+- merge의 편의성을 위해 union-find를 사용하였다.
+- 나머지 명령어는 단순 구현이라고 보면 된다.
 
 ## :black_nib: **Review**
 
-- 단순한 bfs 문제였다!
+- 문제에 세부적인 조건들이 많아서 헷갈렸다..
+- toArray메소드에 대해 좀 더 깊게 알게 되었다!
