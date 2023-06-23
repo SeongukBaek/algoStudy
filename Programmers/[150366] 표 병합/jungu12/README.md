@@ -118,3 +118,8 @@ public String[] solution(String[] commands) {
 
 - 문제에 세부적인 조건들이 많아서 헷갈렸다..
 - toArray메소드에 대해 좀 더 깊게 알게 되었다!
+- toArray안의 인자로 넘겨주는 String 배열의 크기가 0이다. 이와 같이 넘겨 주면 result의 길이 만큼 만들어 진다고 한다 !!
+- 참고
+  - 1. List를 toArray 메서드에 파라메터로 넘어가는 배열 객체의 size만큼의 배열로 전환한다.
+  - 2. 단, 해당 List size가 인자로 넘어가는 배열 객체의 size보다 클때, 해당 List의 size로 배열이 만들어진다.
+  - 3. 반대로 해당 List size가 인자로 넘어가는 배열객체의 size보다 작을때는, 인자로 넘어가는 배열객체의 size로 배열이 만들어진다.
