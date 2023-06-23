@@ -5,7 +5,7 @@ public class Main {
 	static int N, M, K, maxDepth;
 	static HashMap<String, Integer> map = new HashMap<>();
 	static int[] dx = { -1, -1, 0, 1, 1, 1, 0, -1 };
-	static int[] dy = { 0, 1, 1, 1, 0, -1, -1, -1 }; // 시계방향
+	static int[] dy = { 0, 1, 1, 1, 0, -1, -1, -1 };
 	static char[][] world;
 
 	public static void main(String[] args) throws Exception {
@@ -43,7 +43,7 @@ public class Main {
 		}
 	}
 	
-	public static void findNumberOfCases(int x, int y, int depth, String result) {
+	private static void findNumberOfCases(int x, int y, int depth, String result) {
 		if (map.containsKey(result)) {
 			map.put(result, map.get(result) + 1);
 		}
@@ -52,7 +52,7 @@ public class Main {
 			return;
 		}
 
-		for (int dir = 0; dir < dx.length; dir++) {
+		for (int dir = 0; dir < 8; dir++) {
 			int nx = x + dx[dir];
 			int ny = y + dy[dir];
 
