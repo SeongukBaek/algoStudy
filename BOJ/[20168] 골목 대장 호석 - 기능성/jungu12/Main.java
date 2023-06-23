@@ -67,7 +67,7 @@ public class Main_BJ_20168 {
 		for (int[] destination : roads[start]) {
 			if (!visited[destination[0]]) {
 				visited[destination[0]] = true;
-				goRoad(destination[0], Math.max(max, destination[1]), sum += destination[1]);
+				goRoad(destination[0], Math.max(max, destination[1]), sum + destination[1]);
 				visited[destination[0]] = false;
 			}
 		}
