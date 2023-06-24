@@ -7,21 +7,6 @@
 ## :round_pushpin: **Logic**
 
 ```java
-for (int index = 0; index < M; index++) {
-    line = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
-
-    int from = line[0] - 1;
-    int to = line[1] - 1;
-    int cost = line[2];
-
-    roadInfo.get(from).add(new Node(to, cost));
-    roadInfo.get(to).add(new Node(from, cost));
-}
-```
-
-- 인접 정보를 양방향으로 저장한다.
-
-```java
 private static void searchRoute(int current, int cost, int max) {
     // 이미 방문한 경우
     if (visited[current]) {
