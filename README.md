@@ -133,6 +133,6 @@ git push origin {생성한 브랜치}
 </details>
 
 🖇️ 7월 문제집
-|주차|1|2|3|4|5|
-|:---:|:---:|:---:|:---:|:---:|:---:|
-|**1주차**<br> (07.13 ~ 07.19)|[말이 되고픈 원숭이](https://www.acmicpc.net/problem/1600)|[마법사 상어와 파이어스톰](https://www.acmicpc.net/problem/20058)|[과제](https://www.acmicpc.net/problem/13904)|[휴게소 세우기](https://www.acmicpc.net/problem/1477)|[좋다](https://www.acmicpc.net/problem/1253)|
+|주차|1|2|3|4|
+|:---:|:---:|:---:|:---:|:---:|
+|**1주차**<br> (07.13 ~ 07.19)|[말이 되고픈 원숭이](https://www.acmicpc.net/problem/1600)|[마법사 상어와 파이어스톰](https://www.acmicpc.net/problem/20058)|[과제](https://www.acmicpc.net/problem/13904)|[휴게소 세우기](https://www.acmicpc.net/problem/1477)||
