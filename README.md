@@ -132,7 +132,17 @@ git push origin {생성한 브랜치}
 
 </details>
 
+<details><summary>📎 6월 문제집</summary>
+
 🖇️ 7월 문제집
 |주차|1|2|3|4|
 |:---:|:---:|:---:|:---:|:---:|
 |**1주차**<br> (07.13 ~ 07.19)|[말이 되고픈 원숭이](https://www.acmicpc.net/problem/1600)|[마법사 상어와 파이어스톰](https://www.acmicpc.net/problem/20058)|[과제](https://www.acmicpc.net/problem/13904)|[휴게소 세우기](https://www.acmicpc.net/problem/1477)||
+
+</details>
+
+
+🖇️ 8월 문제집
+|주차|1|2|3|
+|:---:|:---:|:---:|:---:|
+|**1주차**<br> (08.21 ~ 08.17)|[상담원 인원](https://school.programmers.co.kr/learn/courses/30/lessons/214288)|[불량 사용자](https://school.programmers.co.kr/learn/courses/30/lessons/64064)|[과제 진행하기](https://school.programmers.co.kr/learn/courses/30/lessons/176962)||
