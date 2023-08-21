@@ -7,7 +7,7 @@
 - 벌금 : 문제당 4000원 (벌금은 제작진들이 회식비로 맛있게 사용할 예정입니다.)
 
 ## 👥 참여자
-> [SeongukBaek](https://github.com/SeongukBaek)
+> [SeongukBaek](https://github.com/SeongukBaek) - (졸업👨‍🎓)
 > 
 > [Jungu12](https://github.com/Jungu12)
 > 
